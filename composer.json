@@ -30,6 +30,7 @@
         "silex/silex": "1.0.*"
     },
     "autoload": {
-        "psr-0": { "Erivello\\Silex": "src" }
+        "psr-0": { "Erivello\\Silex": "src" },
+        "classmap": ["vendor/knpLabs/zend-pdf"]
     }
 }
