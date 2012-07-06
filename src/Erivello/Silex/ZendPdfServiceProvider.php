@@ -13,7 +13,7 @@ namespace Erivello\Silex;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
-class ZendPDFServiceProvider implements ServiceProviderInterface
+class ZendPdfServiceProvider implements ServiceProviderInterface
 {
     /**
      * @{inheritDoc}

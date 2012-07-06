@@ -1,6 +1,6 @@
 {
     "name": "erivello/zend-pdf-service-provider",
-    "description": "A Zend_PDF ServiceProvider for Silex.",
+    "description": "A Zend_Pdf ServiceProvider for Silex.",
     "keywords": ["silex", "zend", "pdf"],
     "license": "MIT",
     "minimum-stability" : "dev",
