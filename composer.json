@@ -1,0 +1,35 @@
+{
+    "name": "erivello/zend-pdf-service-provider",
+    "description": "A Zend_PDF ServiceProvider for Silex.",
+    "keywords": ["silex", "zend", "pdf"],
+    "license": "MIT",
+    "minimum-stability" : "dev",
+    "authors": [
+        {
+            "name": "Edoardo Rivello",
+            "email": "edoardo.rivello@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "knpLabs/zend-pdf",
+                "version": "2.0",
+                "source": {
+                    "url": "https://github.com/KnpLabs/zend-pdf",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "knpLabs/zend-pdf": "2.0",
+        "silex/silex": "1.0.*"
+    },
+    "autoload": {
+        "psr-0": { "Erivello\\Silex": "src" }
+    }
+}
