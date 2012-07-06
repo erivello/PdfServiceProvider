@@ -1,4 +1,4 @@
-ZendPDFServiceProvider
+ZendPdfServiceProvider
 ======================
 
 A [Zend_Pdf][1] ServiceProvider for [Silex][2].
