@@ -17,7 +17,7 @@ class ZendPdfServiceProviderTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-    * @expectedException \Zend\Pdf\Exception\CorruptedPdfException
+    * @expectedException Zend\Pdf\Exception\CorruptedPdfException
     */
     public function testRegisterFailsIfSourceIsNotABinaryStringAndLoadIsFalse()
     {
@@ -29,7 +29,7 @@ class ZendPdfServiceProviderTest extends \PHPUnit_Framework_TestCase
     }    
     
     /**
-    * @expectedException \Zend\Pdf\Exception\IOException
+    * @expectedException Zend\Pdf\Exception\IOException
     */
     public function testRegisterFailsIfSourceIsNotAFileAndLoadIsTrue()
     {
@@ -51,7 +51,7 @@ class ZendPdfServiceProviderTest extends \PHPUnit_Framework_TestCase
         )));
         
         $this->assertTrue($app['zend.pdf'] instanceof \Zend\Pdf\PdfDocument);
-        $this->assertCount(87, count($app['zend.pdf']->pages));
+        $this->assertEquals(87, count($app['zend.pdf']->pages));
         $this->assertEquals($app['zend.pdf']->properties['Title'], 'The Silex Book');
     }    
 }
