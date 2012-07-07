@@ -17,38 +17,42 @@ class ZendPdfServiceProviderTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-    * @expectedException Zend\Pdf\Exception\CorruptedPdfException
+    * @expectedException \Zend\Pdf\Exception\CorruptedPdfException
     */
     public function testRegisterFailsIfSourceIsNotABinaryStringAndLoadIsFalse()
     {
         $app = new Application();
         
-        $app->register(new ZendPdfServiceProvider(array(
+        $app->register(new ZendPdfServiceProvider(), array(
             'zend.pdf.source' => __DIR__.'/Fixtures/Silez.pdf'
-        )));        
+        ));
+        
+        $app['zend.pdf'];
     }    
     
     /**
-    * @expectedException Zend\Pdf\Exception\IOException
+    * @expectedException \Zend\Pdf\Exception\IOException
     */
     public function testRegisterFailsIfSourceIsNotAFileAndLoadIsTrue()
     {
         $app = new Application();
         
-        $app->register(new ZendPdfServiceProvider(array(
+        $app->register(new ZendPdfServiceProvider(), array(
             'zend.pdf.source' => __DIR__.'/Fixtures/Silez.pdf',
             'zend.pdf.load'   => true
-        )));
+        ));
+        
+        $app['zend.pdf'];
     }    
     
     public function testRegisterWithValidSource()
     {
         $app = new Application();
         
-        $app->register(new ZendPdfServiceProvider(array(
+        $app->register(new ZendPdfServiceProvider(), array(
             'zend.pdf.source' => __DIR__.'/Fixtures/Silex.pdf',
             'zend.pdf.load'   => true
-        )));
+        ));
         
         $this->assertTrue($app['zend.pdf'] instanceof \Zend\Pdf\PdfDocument);
         $this->assertEquals(87, count($app['zend.pdf']->pages));
