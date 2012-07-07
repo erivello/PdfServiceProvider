@@ -29,6 +29,10 @@
         "knpLabs/zend-pdf": "2.0",
         "silex/silex": "1.0.*"
     },
+    "suggest": {
+        "knpLabs/zend-pdf": "for the integration of Zend_Pdf library in your application",
+        "silex/silex": "for the integration with your silex application"
+    },
     "autoload": {
         "psr-0": { "Erivello\\Silex": "src" },
         "classmap": ["vendor/knpLabs/zend-pdf"]
