@@ -20,7 +20,14 @@ class ZendPdfServiceProvider implements ServiceProviderInterface
      */
     public function register(Application $app)
     {
-        
+        $app['zend.pdf'] = $app->share(function() use ($app) {
+            
+            $source   = isset ($app['zend.pdf.source']) ? $app['zend.pdf.source'] : null;
+            $revision = isset ($app['zend.pdf.revision']) ? $app['zend.pdf.revision'] : null;
+            $load     = isset ($app['zend.pdf.load']) ? $app['zend.pdf.load'] : false;
+            
+            return new \Zend\Pdf\PdfDocument($source, $revision, $load);
+        });
     }
     
     /**
