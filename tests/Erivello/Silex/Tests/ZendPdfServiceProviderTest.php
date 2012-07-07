@@ -24,7 +24,7 @@ class ZendPdfServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app = new Application();
         
         $app->register(new ZendPdfServiceProvider(array(
-            'zend.pdf.source' => 'Fixtures/Silex.pdf'
+            'zend.pdf.source' => __DIR__.'/Fixtures/Silez.pdf'
         )));        
     }    
     
@@ -36,7 +36,7 @@ class ZendPdfServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app = new Application();
         
         $app->register(new ZendPdfServiceProvider(array(
-            'zend.pdf.source' => 'Fixtures/Silez.pdf',
+            'zend.pdf.source' => __DIR__.'/Fixtures/Silez.pdf',
             'zend.pdf.load'   => true
         )));
     }    
@@ -46,7 +46,7 @@ class ZendPdfServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app = new Application();
         
         $app->register(new ZendPdfServiceProvider(array(
-            'zend.pdf.source' => 'Fixtures/Silex.pdf',
+            'zend.pdf.source' => __DIR__.'/Fixtures/Silex.pdf',
             'zend.pdf.load'   => true
         )));
         
