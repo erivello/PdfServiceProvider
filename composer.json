@@ -34,7 +34,10 @@
         "silex/silex": "for the integration with your silex application"
     },
     "autoload": {
-        "psr-0": { "Erivello\\Silex": "src" },
+        "psr-0": { 
+            "Erivello\\Silex": "src",
+            "Erivello\\Pdf": "src"
+        },
         "classmap": ["vendor/knpLabs/zend-pdf"]
     }
 }
