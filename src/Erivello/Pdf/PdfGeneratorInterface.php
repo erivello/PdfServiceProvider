@@ -10,12 +10,26 @@ namespace Erivello\Pdf;
 interface PdfGeneratorInterface
 {
     /**
+     * Get PdfDocument object
+     * 
+     * @return \Zend\Pdf\PdfDocument
+     */
+    function getPdf();
+
+    /**
+     * Set PdfDocument object
+     * 
+     * @param  \Zend\Pdf\PdfDocument $pdf
+     * @return \Erivello\Pdf\PdfGenerator
+     */
+    function setPdf($pdf);
+    
+    /**
      * Pages collection
      * 
-     * @param  \Zend\Pdf\PdfDocument $pdfDocument PDF document
      * @return array array of \Zend\Pdf\Page object
      */
-    function getPages($pdfDocument);
+    function getPages();
 
     /**
      * Obtain one of the standard 14 PDF fonts
@@ -23,13 +37,13 @@ interface PdfGeneratorInterface
      * @param  string $font Full PostScript name of font.
      * @return \Zend\Pdf\Resource\Font\AbstractFont
      */
-    function getFontByName($font);
+    function getFontByName($fontName);
 
     /**
      * Obtain one color for graphics objects
      * 
      * @param  mixed $color Typical HTML representations (#f00, red)
-     * @return \Zend\Pdf\Color
+     * @return \Zend\Pdf\Color\Html
      */
     function getColorHtml($color);
     

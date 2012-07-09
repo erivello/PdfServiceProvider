@@ -3,6 +3,8 @@
 namespace Erivello\Pdf;
 
 use Zend\Pdf\PdfDocument;
+use Zend\Pdf\Font;
+use Zend\Pdf\Color\Html;
 
 /**
  * PdfGenerator
@@ -12,7 +14,7 @@ use Zend\Pdf\PdfDocument;
 class PdfGenerator implements PdfGeneratorInterface
 {
     /**
-     * @var \Zend\Pdf\PdfDocument instance
+     * @var \Zend\Pdf\PdfDocument
      */
     protected $pdf;
 
@@ -23,21 +25,41 @@ class PdfGenerator implements PdfGeneratorInterface
     {
         $this->pdf = new PdfDocument();
     }
-    
+
+    /**
+     * @{inheritDoc}
+     */      
+    public function getPdf() 
+    {
+        return $this->pdf;
+    }
+
+    /**
+     * @{inheritDoc}
+     */      
+    public function setPdf($pdf) 
+    {
+        $this->pdf = $pdf;
+        
+        return $this;
+    }
+
     /**
      * @{inheritDoc}
      */    
-    public function getPages($pdfDocument)
+    public function getPages()
     {
-        
+        return $this->pdf->pages;
     }
     
     /**
      * @{inheritDoc}
      */    
-    public function getFontByName($font)
+    public function getFontByName($fontName)
     {
+        $fontConstant = constant('\Zend\Pdf\Font::' . $fontName);
         
+        return Font::fontWithName($fontConstant);
     }
     
     /**
@@ -45,7 +67,7 @@ class PdfGenerator implements PdfGeneratorInterface
      */    
     public function getColorHtml($color)
     {
-        
+        return new Html($color);
     }
     
     /**
