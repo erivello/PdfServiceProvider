@@ -12,6 +12,10 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
         $this->page = $this->getMockBuilder('\Zend\Pdf\Page')
             ->disableOriginalConstructor()
             ->getMock();        
+        
+        $this->pdf = $this->getMockBuilder('\Zend\Pdf\PdfDocument')
+            ->disableOriginalConstructor()
+            ->getMock();        
     }
     
     public function testConstructor()
