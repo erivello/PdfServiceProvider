@@ -52,6 +52,19 @@ class PdfGenerator implements PdfGeneratorInterface
     {
         return $this->pdf->pages;
     }
+
+    /**
+     * @{inheritDoc}
+     */    
+    public function newPage($pageSize)
+    {
+        $pageSizeConstant = constant('\Zend\Pdf\Page::' . $pageSize);
+        
+        $page = $this->pdf->newPage($pageSizeConstant);
+        $this->pdf->pages[] = $page;
+        
+        return $page;
+    }
     
     /**
      * @{inheritDoc}

@@ -58,6 +58,19 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
         $color = $pdfGenerator->getColorHtml($colorHtml);
     }
     
+    public function testNewPage()
+    {
+        $pdfGenerator = new PdfGenerator();
+        
+        $this->assertEmpty($pdfGenerator->getPages());
+        
+        $pageSize = 'SIZE_A4';
+        $page = $pdfGenerator->newPage($pageSize);
+        
+        $this->assertInstanceOf('\Zend\Pdf\Page', $page);
+        $this->assertEquals(1, count($pdfGenerator->getPages()));
+    }
+    
     /**
     * @expectedException \Zend\Pdf\Exception
     */

@@ -32,6 +32,14 @@ interface PdfGeneratorInterface
     function getPages();
 
     /**
+     * Create page object, attached to the PDF document.
+     * 
+     * @param string $pageSize
+     * @return \Zend\Pdf\Page
+     */
+    function newPage($pageSize);
+
+    /**
      * Obtain a {@link \Zend\ZPdf\Resource\Font\AbstractFont}, one of the standard 14 PDF fonts
      * 
      * @param  string $font Full PostScript name of font.
