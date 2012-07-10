@@ -134,8 +134,10 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */    
-    public function setPageFont(Page $page, $font, $fontSize)
+    public function setPageFont(Page $page, $fontName, $fontSize)
     {
+        $font = $this->getFontByName($fontName);
+        
         return $page->setFont($font, $fontSize);
     }
     
@@ -150,12 +152,11 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */    
-    public function bind(PdfPreset $preset, $args)
+    public function bind(PdfPreset $preset, $args, $pageSize = self::DEFAULT_PAGE_SIZE, $fontName = self::DEFAULT_FONT)
     {
-        $newPage = $this->newPage(self::DEFAULT_PAGE_SIZE);
+        $newPage = $this->newPage($pageSize);
 
-        $font = $this->getFontByName(self::DEFAULT_FONT);
-        $this->setPageFont($newPage, $font, 14);
+        $this->setPageFont($newPage, $fontName, 14);
         
         foreach ($args as $key => $value) {
             if(!is_array($value)) {

@@ -132,9 +132,8 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($this->page));
         
         $fontName = 'FONT_HELVETICA';
-        $font = $pdfGenerator->getFontByName($fontName);
         
-        $pageDrawn = $pdfGenerator->setPageFont($this->page, $font, 10);
+        $pageDrawn = $pdfGenerator->setPageFont($this->page, $fontName, 10);
 
         $this->assertInstanceOf('\Zend\Pdf\Page', $pageDrawn);
     }

@@ -42,7 +42,7 @@ interface PdfGeneratorInterface
     /**
      * Obtain a {@link \Zend\ZPdf\Resource\Font\AbstractFont}, one of the standard 14 PDF fonts
      * 
-     * @param  string $font Full PostScript name of font.
+     * @param  string $fontName Full PostScript name of font.
      * @return \Zend\ZPdf\Resource\Font\AbstractFont
      */
     function getFontByName($fontName);
@@ -121,11 +121,11 @@ interface PdfGeneratorInterface
      * Set current font in the given page
      * 
      * @param  \Zend\Pdf\Page $page The page to draw text in
-     * @param  \Zend\Pdf\Resource\Font\AbstractFont $font The font to be drawn
+     * @param  string $fontName Full PostScript name of font.
      * @param  float $fontSize
      * @return \Zend\Pdf\Page
      */
-    function setPageFont(\Zend\Pdf\Page $page, $font, $fontSize);
+    function setPageFont(\Zend\Pdf\Page $page, $fontName, $fontSize);
     
     /**
      * Set fill color in the given page
