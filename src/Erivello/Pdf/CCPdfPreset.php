@@ -11,5 +11,5 @@ use Erivello\Pdf\PdfPreset;
  */
 class CCPdfPreset extends PdfPreset
 {
-
+    protected $coordinates = array();
 }
