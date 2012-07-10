@@ -15,6 +15,10 @@ use Zend\Pdf\Image;
  */
 class PdfGenerator implements PdfGeneratorInterface
 {
+    const DEFAULT_FONT = 'FONT_HELVETICA';
+    
+    const DEFAULT_PAGE_SIZE = 'SIZE_A4';
+
     /**
      * @var \Zend\Pdf\PdfDocument
      */
@@ -148,7 +152,22 @@ class PdfGenerator implements PdfGeneratorInterface
      */    
     public function bind(PdfPreset $preset, $args)
     {
+        $newPage = $this->newPage(self::DEFAULT_PAGE_SIZE);
+
+        $font = $this->getFontByName(self::DEFAULT_FONT);
+        $this->setPageFont($newPage, $font, 14);
         
+        foreach ($args as $key => $value) {
+            if(!is_array($value)) {
+                $coordinates = $preset->getPositionFor($key);
+
+                if($coordinates) {
+                    $this->drawTextOnPage($newPage, $value, $coordinates['left'], $coordinates['bottom']);
+                }
+            } else {
+                $this->bind($preset, $value);
+            }
+        }
     }
     
     /**

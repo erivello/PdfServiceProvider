@@ -16,6 +16,8 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
         $this->pdf = $this->getMockBuilder('\Zend\Pdf\PdfDocument')
             ->disableOriginalConstructor()
             ->getMock();        
+        
+        $this->pdfPreset = $this->getMock('\Erivello\Pdf\PdfPreset');        
     }
     
     public function testConstructor()
@@ -151,6 +153,30 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
         $pageDrawn = $pdfGenerator->setPageFillColor($this->page, $color);
 
         $this->assertInstanceOf('\Zend\Pdf\Page', $pageDrawn);
+    }
+    
+    public function testBindWithArgsValueString()
+    {
+        $pdfGenerator = new PdfGenerator();
+        
+        $this->pdfPreset->expects($this->once())
+            ->method('getPositionFor')
+            ->will($this->returnValue(array('left' => 1234, 'bottom' => 98.76)));
+        
+        $args = array('nome' => '1234,98.76');
+        $pdfGenerator->bind($this->pdfPreset, $args);
+    }
+    
+    public function testBindWithArgsValueArray()
+    {
+        $pdfGenerator = new PdfGenerator();
+        
+        $this->pdfPreset->expects($this->exactly(3))
+            ->method('getPositionFor')
+            ->will($this->returnValue(array('left' => 1234, 'bottom' => 98.76)));
+        
+        $args = array('nome' => '1234,98.76', 'data_di_nascita' => array('year' => '1234,98.76', 'month' => '43.21,987'));
+        $pdfGenerator->bind($this->pdfPreset, $args);
     }
 
 }
