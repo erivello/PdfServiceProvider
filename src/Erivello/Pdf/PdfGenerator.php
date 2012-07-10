@@ -120,7 +120,7 @@ class PdfGenerator implements PdfGeneratorInterface
      */    
     public function drawTextOnPage(Page $page, $text, $left, $bottom, $encoding = 'UTF-8')
     {
-        return $page->drawText($text, $left, $bottom);
+        return $page->drawText($text, $left, $bottom, $encoding);
     }
     
     /**
