@@ -149,6 +149,7 @@ interface PdfGeneratorInterface
      * 
      * @param string $filename
      * @throws \Zend\Pdf\Exception
+     * @return \Erivello\Pdf\PdfGenerator
      */
     function save($filename);
 }

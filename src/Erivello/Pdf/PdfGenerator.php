@@ -142,7 +142,7 @@ class PdfGenerator implements PdfGeneratorInterface
      */    
     public function render()
     {
-        
+        return $this->pdf->render(); 
     }
     
     /**
@@ -150,6 +150,8 @@ class PdfGenerator implements PdfGeneratorInterface
      */    
     public function save($filename)
     {
+        $this->pdf->save($filename);
         
+        return $this;
     }
 }
