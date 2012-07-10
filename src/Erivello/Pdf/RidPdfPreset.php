@@ -12,7 +12,7 @@ use Erivello\Pdf\PdfPreset;
 class RidPdfPreset extends PdfPreset
 {
     protected $coordinates = array(
-        'nome' => '1234,98.76',
+        'nome' => '123,98.76',
         'cognome' => '',
         'indirizzo' => '',
         'n_civico' => '',
