@@ -22,7 +22,7 @@ interface PdfGeneratorInterface
      * @param  \Zend\Pdf\PdfDocument $pdf
      * @return \Erivello\Pdf\PdfGenerator
      */
-    function setPdf($pdf);
+    function setPdf(\Zend\Pdf\PdfDocument $pdf);
     
     /**
      * Pages collection
@@ -102,7 +102,7 @@ interface PdfGeneratorInterface
      * @throws \Zend\Pdf\Exception
      * @return \Zend\Pdf\Page
      */
-    function drawTextOnPage($page, $text, $left, $bottom, $encoding = 'UTF-8');
+    function drawTextOnPage(\Zend\Pdf\Page $page, $text, $left, $bottom, $encoding = 'UTF-8');
     
     /**
      * Draw an image at the specified position on the page.
@@ -115,7 +115,7 @@ interface PdfGeneratorInterface
      * @param float $top
      * @return \Zend\Pdf\Page
      */    
-    function drawImageOnPage($page, $image, $left, $bottom, $right, $top);
+    function drawImageOnPage(\Zend\Pdf\Page $page, $image, $left, $bottom, $right, $top);
     
     /**
      * Set current font in the given page
@@ -125,7 +125,7 @@ interface PdfGeneratorInterface
      * @param  float $fontSize
      * @return \Zend\Pdf\Page
      */
-    function setPageFont($page, $font, $fontSize);
+    function setPageFont(\Zend\Pdf\Page $page, $font, $fontSize);
     
     /**
      * Set fill color in the given page
@@ -134,15 +134,15 @@ interface PdfGeneratorInterface
      * @param  \Zend\Pdf\Color $color 
      * @return \Zend\Pdf\Page
      */
-    function setPageFillColor($page, $color);
+    function setPageFillColor(\Zend\Pdf\Page $page, \Zend\Pdf\Color $color);
     
     /**
      * Draw text given in input
      * 
-     * @param $preset
+     * @param PdfPreset $preset
      * @param array $args Array of texts to be drawn ('tel => '1234567')
      */
-    function bind($preset, $args);
+    function bind(\Erivello\Pdf\PdfPreset $preset, $args);
     
     /**
      * Render the completed PDF to a string.

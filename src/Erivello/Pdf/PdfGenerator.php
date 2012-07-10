@@ -3,8 +3,9 @@
 namespace Erivello\Pdf;
 
 use Zend\Pdf\PdfDocument;
+use Zend\Pdf\Page;
 use Zend\Pdf\Font;
-use Zend\Pdf\Color\Html;
+use Zend\Pdf\Color;
 use Zend\Pdf\Image;
 
 /**
@@ -38,7 +39,7 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */      
-    public function setPdf($pdf) 
+    public function setPdf(PdfDocument $pdf) 
     {
         $this->pdf = $pdf;
         
@@ -81,7 +82,7 @@ class PdfGenerator implements PdfGeneratorInterface
      */    
     public function getColorHtml($color)
     {
-        return new Html($color);
+        return new Color\Html($color);
     }
     
     /**
@@ -113,7 +114,7 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */    
-    public function drawTextOnPage($page, $text, $left, $bottom, $encoding = 'UTF-8')
+    public function drawTextOnPage(Page $page, $text, $left, $bottom, $encoding = 'UTF-8')
     {
         return $page->drawText($text, $left, $bottom);
     }
@@ -121,7 +122,7 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */    
-    public function drawImageOnPage($page, $image, $left, $bottom, $right, $top)
+    public function drawImageOnPage(Page $page, $image, $left, $bottom, $right, $top)
     {
         return $page->drawImage($image, $left, $bottom, $right, $top);
     }
@@ -129,7 +130,7 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */    
-    public function setPageFont($page, $font, $fontSize)
+    public function setPageFont(Page $page, $font, $fontSize)
     {
         return $page->setFont($font, $fontSize);
     }
@@ -137,7 +138,7 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */    
-    public function setPageFillColor($page, $color)
+    public function setPageFillColor(Page $page, Color $color)
     {
         return $page->setFillColor($color);
     }
@@ -145,7 +146,7 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */    
-    public function bind($preset, $args)
+    public function bind(PdfPreset $preset, $args)
     {
         
     }
