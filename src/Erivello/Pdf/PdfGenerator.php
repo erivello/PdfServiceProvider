@@ -5,6 +5,7 @@ namespace Erivello\Pdf;
 use Zend\Pdf\PdfDocument;
 use Zend\Pdf\Font;
 use Zend\Pdf\Color\Html;
+use Zend\Pdf\Image;
 
 /**
  * PdfGenerator
@@ -72,10 +73,44 @@ class PdfGenerator implements PdfGeneratorInterface
     
     /**
      * @{inheritDoc}
-     */    
-    public function drawTextOnPage($page, $text, $leftCoordinate, $bottomCoordinate, $encoding = 'UTF-8')
+     */
+    public function getImage($filePath)
     {
+        return $image = Image::imageWithPath($filePath);
+    }
+    
+    /**
+     * @{inheritDoc}
+     */
+    public function getPropertyValue($property)
+    {
+        return $this->pdf->properties[$property];
+    }
+    
+    /**
+     * @{inheritDoc}
+     */
+    public function setPropertyValue($property, $value)
+    {
+        $this->pdf->properties[$property] = $value;
         
+        return $this;
+    }
+
+    /**
+     * @{inheritDoc}
+     */    
+    public function drawTextOnPage($page, $text, $left, $bottom, $encoding = 'UTF-8')
+    {
+        return $page->drawText($text, $left, $bottom);
+    }
+    
+    /**
+     * @{inheritDoc}
+     */    
+    public function drawImageOnPage($page, $image, $left, $bottom, $right, $top)
+    {
+        return $page->drawImage($image, $left, $bottom, $right, $top);
     }
     
     /**
@@ -83,7 +118,7 @@ class PdfGenerator implements PdfGeneratorInterface
      */    
     public function setPageFont($page, $font, $fontSize)
     {
-        
+        return $page->setFont($font, $fontSize);
     }
     
     /**
@@ -91,7 +126,7 @@ class PdfGenerator implements PdfGeneratorInterface
      */    
     public function setPageFillColor($page, $color)
     {
-        
+        return $page->setFillColor($color);
     }
     
     /**

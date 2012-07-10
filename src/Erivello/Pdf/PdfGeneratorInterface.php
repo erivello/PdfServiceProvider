@@ -32,15 +32,15 @@ interface PdfGeneratorInterface
     function getPages();
 
     /**
-     * Obtain one of the standard 14 PDF fonts
+     * Obtain a {@link \Zend\ZPdf\Resource\Font\AbstractFont}, one of the standard 14 PDF fonts
      * 
      * @param  string $font Full PostScript name of font.
-     * @return \Zend\Pdf\Resource\Font\AbstractFont
+     * @return \Zend\ZPdf\Resource\Font\AbstractFont
      */
     function getFontByName($fontName);
 
     /**
-     * Obtain one color for graphics objects
+     * Obtain a {@link \Zend\Pdf\Color\Html} for graphics objects
      * 
      * @param  mixed $color Typical HTML representations (#f00, red)
      * @return \Zend\Pdf\Color\Html
@@ -48,16 +48,66 @@ interface PdfGeneratorInterface
     function getColorHtml($color);
     
     /**
-     * Draw text at the drawing coordinates given in points
+     * Returns a {@link \Zend\Pdf\Resource\Image\AbstractImage} object by file path.
+     *
+     * @param  string $filePath Full path to the image file.
+     * @return \Zend\Pdf\Resource\Image\AbstractImage
+     * @throws \Zend\Pdf\Exception
+     */
+    function getImage($filePath);
+    
+    /**
+     * Get document property
+     * 
+     * @param  string $property
+     * @return string the property value
+     * 
+     * Standard document properties: Title (must be set for PDF/X documents), Author,
+     * Subject, Keywords (comma separated list), Creator (the name of the application,
+     * that created document, if it was converted from other format), Trapped (must be
+     * true, false or null, can not be null for PDF/X documents)
+     */
+    function getPropertyValue($property);
+    
+    /**
+     * Set document property
+     * 
+     * @param  string $property
+     * @param  string $value
+     * @return \Erivello\Pdf\PdfGenerator
+     * 
+     * Standard document properties: Title (must be set for PDF/X documents), Author,
+     * Subject, Keywords (comma separated list), Creator (the name of the application,
+     * that created document, if it was converted from other format), Trapped (must be
+     * true, false or null, can not be null for PDF/X documents)
+     */
+    function setPropertyValue($property, $value);
+    
+    /**
+     * Draw text at the specified position on the page.
      * 
      * @param  \Zend\Pdf\Page $page The page to draw text in
-     * @param  string $text Text to be drawn
-     * @param  float $left Left coordinate
-     * @param  float $right Right coordinate
+     * @param  string $text
+     * @param  float $left
+     * @param  float $bottom
      * @param  string $encoding Character encoding of source text
+     * @throws \Zend\Pdf\Exception
      * @return \Zend\Pdf\Page
      */
-    function drawTextOnPage($page, $text, $leftCoordinate, $bottomCoordinate, $encoding = 'UTF-8');
+    function drawTextOnPage($page, $text, $left, $bottom, $encoding = 'UTF-8');
+    
+    /**
+     * Draw an image at the specified position on the page.
+     *
+     * @param  \Zend\Pdf\Page $page The page to draw text in
+     * @param \Zend\Pdf\Image $image
+     * @param float $left
+     * @param float $bottom
+     * @param float $right
+     * @param float $top
+     * @return \Zend\Pdf\Page
+     */    
+    function drawImageOnPage($page, $image, $left, $bottom, $right, $top);
     
     /**
      * Set current font in the given page
