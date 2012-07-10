@@ -10,14 +10,14 @@ namespace Erivello\Pdf;
 interface PdfGeneratorInterface
 {
     /**
-     * Get PdfDocument object
+     * Get {@link \Zend\Pdf\PdfDocument} object
      * 
      * @return \Zend\Pdf\PdfDocument
      */
     function getPdf();
 
     /**
-     * Set PdfDocument object
+     * Set {@link \Erivello\Pdf\PdfGenerator} object
      * 
      * @param  \Zend\Pdf\PdfDocument $pdf
      * @return \Erivello\Pdf\PdfGenerator
@@ -32,10 +32,10 @@ interface PdfGeneratorInterface
     function getPages();
 
     /**
-     * Create page object, attached to the PDF document.
+     * Create a {@link \Zend\Pdf\Page} object, attached to the PDF document.
      * 
      * @param string $pageSize
-     * @return \Zend\Pdf\Page
+     * @return 
      */
     function newPage($pageSize);
 
