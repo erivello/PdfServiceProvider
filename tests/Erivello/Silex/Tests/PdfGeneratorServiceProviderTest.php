@@ -13,6 +13,6 @@ class PdfGeneratorServiceProviderTest extends \PHPUnit_Framework_TestCase
         
         $app->register(new PdfGeneratorServiceProvider());
         
-        $this->assertTrue($app['pdf.generator'] instanceof \Erivello\Pdf\PdfGenerator);
+        $this->assertTrue($app['pdf.generator'] instanceof \Erivello\Pdf\Generator\PdfGenerator);
     }  
 }

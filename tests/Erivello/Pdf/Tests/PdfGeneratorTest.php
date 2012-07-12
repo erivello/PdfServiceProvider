@@ -17,7 +17,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();        
         
-        $this->pdfPreset = $this->getMock('\Erivello\Pdf\PdfPreset');        
+        $this->pdfPreset = $this->getMock('\Erivello\Pdf\Preset\PdfPreset');        
     }
     
     public function testConstructor()
