@@ -1,6 +1,6 @@
 <?php
 
-namespace Erivello\Pdf;
+namespace Erivello\Pdf\Generator;
 
 use Zend\Pdf\PdfDocument;
 use Zend\Pdf\Page;
