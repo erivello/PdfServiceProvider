@@ -1,8 +1,8 @@
 <?php
 
-namespace Erivello\Pdf;
+namespace Erivello\Pdf\Preset;
 
-use Erivello\Pdf\PdfPreset;
+use Erivello\Pdf\Preset\PdfPreset;
 
 /**
  * CCPdfPreset
