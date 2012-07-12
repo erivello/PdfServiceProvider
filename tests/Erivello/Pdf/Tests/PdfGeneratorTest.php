@@ -3,7 +3,7 @@
 namespace Erivello\Pdf\Tests;
 
 use Silex\Application;
-use Erivello\Pdf\PdfGenerator;
+use Erivello\Pdf\Generator\PdfGenerator;
 
 class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
 {
