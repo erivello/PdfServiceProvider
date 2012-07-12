@@ -27,8 +27,8 @@ class PdfGeneratorServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $app['pdf.generator.class']  = 'Erivello\Pdf\PdfGenerator';
-        $app['pdf.rid.preset.class'] = 'Erivello\Pdf\RidPdfPreset';
-        $app['pdf.cc.preset.class']  = 'Erivello\Pdf\CCPdfPreset';
+        $app['pdf.rid.preset.class'] = 'Erivello\Pdf\Preset\RidPdfPreset';
+        $app['pdf.cc.preset.class']  = 'Erivello\Pdf\Preset\CCPdfPreset';
         
         $app['pdf.generator'] = $app->share(function() use ($app) {
             

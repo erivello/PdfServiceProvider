@@ -49,8 +49,7 @@
     },
     "autoload": {
         "psr-0": { 
-            "Erivello\\Silex": "src",
-            "Erivello\\Pdf": "src"
+            "Erivello": "src"
         },
         "classmap": [
             "vendor/knpLabs/zend-pdf",

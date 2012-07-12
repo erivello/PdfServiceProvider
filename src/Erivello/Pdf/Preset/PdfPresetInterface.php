@@ -1,6 +1,6 @@
 <?php
 
-namespace Erivello\Pdf;
+namespace Erivello\Pdf\Preset;
 
 /**
  *

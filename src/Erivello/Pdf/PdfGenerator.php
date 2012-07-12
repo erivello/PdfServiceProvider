@@ -7,6 +7,7 @@ use Zend\Pdf\Page;
 use Zend\Pdf\Font;
 use Zend\Pdf\Color;
 use Zend\Pdf\Image;
+use Erivello\Pdf\Preset\PdfPreset;
 
 /**
  * PdfGenerator

@@ -142,7 +142,7 @@ interface PdfGeneratorInterface
      * @param PdfPreset $preset
      * @param array $args Array of texts to be drawn ('tel => '1234567')
      */
-    function bind(\Erivello\Pdf\PdfPreset $preset, $args);
+    function bind(\Erivello\Pdf\Preset\PdfPreset $preset, $args);
     
     /**
      * Render the completed PDF to a string.
