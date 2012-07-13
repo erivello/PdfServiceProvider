@@ -2,7 +2,7 @@
 
 <phpunit colors="false" bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite name="ZendPdfServiceProvider Test Suite">
+        <testsuite name="PdfServiceProvider Test Suite">
             <directory suffix="Test.php">./tests/</directory>
         </testsuite>
     </testsuites>
