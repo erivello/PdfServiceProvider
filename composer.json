@@ -1,6 +1,6 @@
 {
-    "name": "erivello/zend-pdf-service-provider",
-    "description": "A Zend_Pdf ServiceProvider for Silex.",
+    "name": "erivello/pdf-service-provider",
+    "description": "A PdfServiceProvider for Silex, based on Zend_Pdf library.",
     "keywords": ["silex", "zend", "pdf"],
     "license": "MIT",
     "minimum-stability" : "dev",
@@ -10,31 +10,17 @@
             "email": "edoardo.rivello@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "knpLabs/zend-pdf",
-                "version": "2.0",
-                "source": {
-                    "url": "https://github.com/KnpLabs/zend-pdf",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
-        "knpLabs/zend-pdf": "2.0",
+        "zendframework/zend-pdf": "dev-master",
         "silex/silex": "1.0.*"
     },
     "suggest": {
-        "knpLabs/zend-pdf": "for the integration of Zend_Pdf library in your application",
         "silex/silex": "for the integration with your silex application"
     },
     "autoload": {
-        "psr-0": { "Erivello\\Silex": "src" },
-        "classmap": ["vendor/knpLabs/zend-pdf"]
+        "psr-0": { 
+            "Erivello": "src"
+        }
     }
 }
