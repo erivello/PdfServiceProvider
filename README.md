@@ -3,7 +3,7 @@ ZendPdfServiceProvider
 
 A [Zend_Pdf][1] Service Provider for [Silex][2].
 
-[![Build Status](https://secure.travis-ci.org/erivello/ZendPdfServiceProvider.png?branch=master)](http://travis-ci.org/erivello/ZendPdfServiceProvider)
+[![Build Status](https://secure.travis-ci.org/erivello/PdfServiceProvider.png?branch=master)](http://travis-ci.org/erivello/PdfServiceProvider)
 
 Installation
 ------------
