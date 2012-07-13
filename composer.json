@@ -10,50 +10,17 @@
             "email": "edoardo.rivello@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "knpLabs/zend-pdf",
-                "version": "2.0",
-                "source": {
-                    "url": "https://github.com/KnpLabs/zend-pdf",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "knpLabs/zend-memory",
-                "version": "2.0",
-                "source": {
-                    "url": "https://github.com/KnpLabs/zend-memory",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
-        "knpLabs/zend-pdf": "2.0",
-        "knpLabs/zend-memory": "2.0",
+        "zendframework/zend-pdf": "dev-master",
         "silex/silex": "1.0.*"
     },
     "suggest": {
-        "knpLabs/zend-pdf": "for the integration of Zend_Pdf library in your application",
-        "knpLabs/zend-memory": "for the integration of Zend_Memory library in your application",
         "silex/silex": "for the integration with your silex application"
     },
     "autoload": {
         "psr-0": { 
             "Erivello": "src"
-        },
-        "classmap": [
-            "vendor/knpLabs/zend-pdf",
-            "vendor/knpLabs/zend-memory"
-        ]
+        }
     }
 }

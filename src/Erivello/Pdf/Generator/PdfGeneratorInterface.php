@@ -134,7 +134,7 @@ interface PdfGeneratorInterface
      * @param  \Zend\Pdf\Color $color 
      * @return \Zend\Pdf\Page
      */
-    function setPageFillColor(\Zend\Pdf\Page $page, \Zend\Pdf\Color $color);
+    function setPageFillColor(\Zend\Pdf\Page $page, \Zend\Pdf\Color\ColorInterface $color);
     
     /**
      * Draw text given in input

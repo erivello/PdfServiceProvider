@@ -50,7 +50,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-    * @expectedException \Zend\Pdf\Exception
+    * @expectedException \Zend\Pdf\Exception\InvalidArgumentException
     */
     public function testGetColorHtmlFails()
     {
@@ -74,7 +74,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-    * @expectedException \Zend\Pdf\Exception
+    * @expectedException \Zend\Pdf\Exception\IOException
     */
     public function testGetImageFails()
     {

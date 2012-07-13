@@ -145,7 +145,7 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */    
-    public function setPageFillColor(Page $page, Color $color)
+    public function setPageFillColor(Page $page, Color\ColorInterface $color)
     {
         return $page->setFillColor($color);
     }
