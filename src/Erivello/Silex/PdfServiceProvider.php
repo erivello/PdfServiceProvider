@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of PdfGeneratorServiceProvider.
+ * This file is part of PdfServiceProvider.
  *
  * (c) Edoardo Rivello <edoardo.rivello@gmail.com>
  *
@@ -15,11 +15,11 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 
 /**
- * PdfGenerator Provider.
+ * Pdf Provider.
  *
  * @author Edoardo Rivello <edoardo.rivello@gmail.com>
  */
-class PdfGeneratorServiceProvider implements ServiceProviderInterface
+class PdfServiceProvider implements ServiceProviderInterface
 {
     /**
      * @{inheritDoc}

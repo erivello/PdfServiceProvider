@@ -3,7 +3,7 @@
 namespace Erivello\Silex\Tests;
 
 use Silex\Application;
-use Erivello\Silex\PdfGeneratorServiceProvider;
+use Erivello\Silex\PdfServiceProvider;
 
 class PdfGeneratorServiceProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,7 +11,7 @@ class PdfGeneratorServiceProviderTest extends \PHPUnit_Framework_TestCase
     {
         $app = new Application();
         
-        $app->register(new PdfGeneratorServiceProvider());
+        $app->register(new PdfServiceProvider());
         
         $this->assertTrue($app['pdf.generator'] instanceof \Erivello\Pdf\Generator\PdfGenerator);
     }  
