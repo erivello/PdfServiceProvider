@@ -29,33 +29,33 @@ class PdfServiceProvider implements ServiceProviderInterface
         $app['pdf.generator.class']  = 'Erivello\Pdf\Generator\PdfGenerator';
         $app['pdf.rid.preset.class'] = 'Erivello\Pdf\Preset\RidPdfPreset';
         $app['pdf.cc.preset.class']  = 'Erivello\Pdf\Preset\CCPdfPreset';
-        
+
         $app['pdf.generator'] = $app->share(function() use ($app) {
-            
+
             $pdfGenerator = new $app['pdf.generator.class'];
-            
+
             return $pdfGenerator;
         });
-        
+
         $app['pdf.rid.preset'] = $app->share(function() use ($app) {
-        
+
             $ridPreset = new $app['pdf.rid.preset.class'];
-            
+
             return $ridPreset;
         });
 
         $app['pdf.cc.preset'] = $app->share(function() use ($app) {
-        
+
             $ccPreset = new $app['pdf.cc.preset.class'];
-            
+
             return $ccPreset;
         });
     }
-    
+
     /**
      * @{inheritDoc}
      */
-    public function boot(Application $app) {
-
+    public function boot(Application $app)
+    {
     }
 }
