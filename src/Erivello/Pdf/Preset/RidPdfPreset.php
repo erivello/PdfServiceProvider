@@ -24,7 +24,7 @@ class RidPdfPreset extends PdfPreset
         'email' => '',
         'codice_fiscale' => '',
         'sesso' => '',
-        'data_di_nascita' => 
+        'data_di_nascita' =>
             array(
                 'year' => '',
                 'month' => '',
@@ -38,11 +38,11 @@ class RidPdfPreset extends PdfPreset
         'altro_importo' => '',
         'iban' => '',
         'istituto_bancario_ufficio_postale' => '',
-        'delega_di_pagamento' => 
+        'delega_di_pagamento' =>
             array(
                 'delega_pagamento' => false
             ),
-        'privacy' => 
+        'privacy' =>
             array(
                 'privacy' => false
             ),
