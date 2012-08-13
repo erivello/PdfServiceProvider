@@ -8,11 +8,11 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
 {
     public function setup()
     {
-        $this->page = $this->getMockBuilder('\Zend\Pdf\Page')
+        $this->page = $this->getMockBuilder('\ZendPdf\Page')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->pdf = $this->getMockBuilder('\Zend\Pdf\PdfDocument')
+        $this->pdf = $this->getMockBuilder('\ZendPdf\PdfDocument')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -23,7 +23,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $pdfGenerator = new PdfGenerator();
 
-        $this->assertInstanceOf('\Zend\Pdf\PdfDocument', $pdfGenerator->getPdf());
+        $this->assertInstanceOf('\ZendPdf\PdfDocument', $pdfGenerator->getPdf());
         $this->assertEmpty($pdfGenerator->getPages());
         $this->assertEquals($pdfGenerator->getPages(), array());
     }
@@ -35,7 +35,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
         $fontName = 'FONT_HELVETICA';
         $font = $pdfGenerator->getFontByName($fontName);
 
-        $this->assertInstanceOf('\Zend\Pdf\Resource\Font\AbstractFont', $font);
+        $this->assertInstanceOf('\ZendPdf\Resource\Font\AbstractFont', $font);
     }
 
     public function testGetColorHtml()
@@ -45,11 +45,11 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
         $colorHtml = '#650D0E';
         $color = $pdfGenerator->getColorHtml($colorHtml);
 
-        $this->assertInstanceOf('\Zend\Pdf\Color\Html', $color);
+        $this->assertInstanceOf('\ZendPdf\Color\Html', $color);
     }
 
     /**
-    * @expectedException \Zend\Pdf\Exception\InvalidArgumentException
+    * @expectedException \ZendPdf\Exception\InvalidArgumentException
     */
     public function testGetColorHtmlFails()
     {
@@ -68,12 +68,12 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
         $pageSize = 'SIZE_A4';
         $page = $pdfGenerator->newPage($pageSize);
 
-        $this->assertInstanceOf('\Zend\Pdf\Page', $page);
+        $this->assertInstanceOf('\ZendPdf\Page', $page);
         $this->assertEquals(1, count($pdfGenerator->getPages()));
     }
 
     /**
-    * @expectedException \Zend\Pdf\Exception\IOException
+    * @expectedException \ZendPdf\Exception\IOException
     */
     public function testGetImageFails()
     {
@@ -90,7 +90,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
         $filePath = __DIR__.'/Fixtures/sensio-labs-product.png';
         $image = $pdfGenerator->getImage($filePath);
 
-        $this->assertInstanceOf('\Zend\Pdf\Resource\Image\AbstractImage', $image);
+        $this->assertInstanceOf('\ZendPdf\Resource\Image\AbstractImage', $image);
     }
 
     public function testDrawTextOnPage()
@@ -103,7 +103,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
 
         $pageDrawn = $pdfGenerator->drawTextOnPage($this->page, 'text', 10, 123);
 
-        $this->assertInstanceOf('\Zend\Pdf\Page', $pageDrawn);
+        $this->assertInstanceOf('\ZendPdf\Page', $pageDrawn);
     }
 
     public function testDrawImageOnPage()
@@ -119,7 +119,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
 
         $pageDrawn = $pdfGenerator->drawImageOnPage($this->page, $image, 10, 123, 1234, 12345);
 
-        $this->assertInstanceOf('\Zend\Pdf\Page', $pageDrawn);
+        $this->assertInstanceOf('\ZendPdf\Page', $pageDrawn);
     }
 
     public function testSetPageFont()
@@ -134,7 +134,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
 
         $pageDrawn = $pdfGenerator->setPageFont($this->page, $fontName, 10);
 
-        $this->assertInstanceOf('\Zend\Pdf\Page', $pageDrawn);
+        $this->assertInstanceOf('\ZendPdf\Page', $pageDrawn);
     }
 
     public function testSetPageFillColor()
@@ -150,7 +150,7 @@ class PdfGeneratorTest extends \PHPUnit_Framework_TestCase
 
         $pageDrawn = $pdfGenerator->setPageFillColor($this->page, $color);
 
-        $this->assertInstanceOf('\Zend\Pdf\Page', $pageDrawn);
+        $this->assertInstanceOf('\ZendPdf\Page', $pageDrawn);
     }
 
     public function testBindWithArgsValueString()

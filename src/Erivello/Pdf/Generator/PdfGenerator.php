@@ -2,11 +2,11 @@
 
 namespace Erivello\Pdf\Generator;
 
-use Zend\Pdf\PdfDocument;
-use Zend\Pdf\Page;
-use Zend\Pdf\Font;
-use Zend\Pdf\Color;
-use Zend\Pdf\Image;
+use ZendPdf\PdfDocument;
+use ZendPdf\Page;
+use ZendPdf\Font;
+use ZendPdf\Color;
+use ZendPdf\Image;
 use Erivello\Pdf\Preset\PdfPreset;
 
 /**
@@ -21,7 +21,7 @@ class PdfGenerator implements PdfGeneratorInterface
     const DEFAULT_PAGE_SIZE = 'SIZE_A4';
 
     /**
-     * @var \Zend\Pdf\PdfDocument
+     * @var \ZendPdf\PdfDocument
      */
     protected $pdf;
 
@@ -64,7 +64,7 @@ class PdfGenerator implements PdfGeneratorInterface
      */
     public function newPage($pageSize)
     {
-        $pageSizeConstant = constant('\Zend\Pdf\Page::' . $pageSize);
+        $pageSizeConstant = constant('\ZendPdf\Page::' . $pageSize);
 
         $page = $this->pdf->newPage($pageSizeConstant);
         $this->pdf->pages[] = $page;
@@ -77,7 +77,7 @@ class PdfGenerator implements PdfGeneratorInterface
      */
     public function getFontByName($fontName)
     {
-        $fontConstant = constant('\Zend\Pdf\Font::' . $fontName);
+        $fontConstant = constant('\ZendPdf\Font::' . $fontName);
 
         return Font::fontWithName($fontConstant);
     }
