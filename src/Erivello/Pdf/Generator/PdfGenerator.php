@@ -135,6 +135,17 @@ class PdfGenerator implements PdfGeneratorInterface
     /**
      * @{inheritDoc}
      */
+    public function drawLineOnPage(Page $page, $width, $x1, $y1, $x2, $y2)
+    {
+        return $page
+                ->setLineWidth($width)
+                ->drawLine($x1, $y1, $x2, $y2)
+            ;
+    }
+
+    /**
+     * @{inheritDoc}
+     */
     public function setPageFont(Page $page, $fontName, $fontSize)
     {
         $font = $this->getFontByName($fontName);
