@@ -61,7 +61,7 @@ License
 
 The PdfServiceProvider is licensed under the MIT license.
 
-[1]: http://framework.zend.com/manual/en/zend.pdf.html
+[1]: http://framework.zend.com/manual/1.12/en/zend.pdf.html
 [2]: http://silex.sensiolabs.org/
 [3]: http://getcomposer.org/
 [4]: http://getcomposer.org/composer.phar
